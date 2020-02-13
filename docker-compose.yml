@@ -2,7 +2,7 @@ version: "2"
 services:
   web:
     build: .
-    image: base_web_apache_mysql_php73
+    image: base_web_apache_mysql_php_73
     ports:
       - "10080:80"
     environment:
