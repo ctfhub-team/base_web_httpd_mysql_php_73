@@ -1,0 +1,10 @@
+version: "2"
+services:
+  web:
+    build: .
+    image: base_web_apache_mysql_php73
+    ports:
+      - "10080:80"
+    environment:
+      - FLAG=ctfhub{test_flag}
+      - DOMAIN_NAME=test.sandbox.ctfhub.com

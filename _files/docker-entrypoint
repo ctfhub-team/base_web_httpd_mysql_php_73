@@ -1,0 +1,43 @@
+#!/bin/bash
+# Author : L1n3 <yw9381@163.com>
+# Date   : 2020/02/13, 12:27
+
+# 启动服务
+service mysql start > /dev/null 2>&1
+service apache2 start > /dev/null 2>&1
+
+mysql_ready() {
+    mysqladmin ping -h 127.0.0.1 -uroot -proot > /dev/null 2>&1
+}
+
+while !(mysql_ready)
+do
+    sleep 1s
+done
+
+
+# 导入数据库
+if [ -f /var/www/html/db.sql ]; then
+    echo "[+] Init db.sql"
+    mysql -uroot -proot -e "source /var/www/html/db.sql"
+    rm -f /var/www/html/db.sql
+fi
+
+# 导入apache配置
+if [ -f /var/www/html/000-default.conf ]; then
+    echo "[+] Init apache2"
+    mv /var/www/html/000-default.conf /etc/apache2/sites-available/000-default.conf
+    service apache2 restart
+fi
+
+# 导入flag
+if [ -f /flag.sh ]; then
+    echo "[+] Init flag.sh"
+    source /flag.sh
+    rm -rf /flag.sh
+fi
+
+while true
+do
+    sleep 120s
+done
