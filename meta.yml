@@ -1,0 +1,8 @@
+name: base_web_apache_mysql_php73
+title: 基础镜像 Web Apache MariaDB PHP 7.3
+desc: 基础镜像 Web Apache MariaDB PHP 7.3
+tags:
+    - web
+    - apache
+    - mariadb
+    - php7.3
