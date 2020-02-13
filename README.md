@@ -1,4 +1,4 @@
-# 基础镜像 Web Apache MariaDB PHP 7.3
+# 基础镜像 Web HTTPd MariaDB PHP 7.3
 
 ## 环境信息
 - L: Debian 10 buster
