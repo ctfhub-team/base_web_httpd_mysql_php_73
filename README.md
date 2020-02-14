@@ -41,6 +41,12 @@
 数据库密码：`root`
 
 ### 说明
-1. 当环境启动后。root密码将会自动修改为随机。请自行在`flag.sh`中创建普通用户并授予相应权限，如有需求使用root用户，请在`flag.sh`中自行处理
-2. 如对Apache虚拟主机有特殊需求。请添加`000-default.conf`至`_files`中，启动时会自动替换
-3. 请将要导入的数据存放在`src/db.sql`中，并在Dockerfile中编写`COPY src /var/www/html`，环境会自动导入，最终导入使用路径为`/var/www/html/db.sql`，导入完毕后会`自动删除`db.sql
+
+1. 当环境启动后。mysql的root密码将会自动修改为随机。请自行在`flag.sh`中创建普通用户并授予相应权限，如有需求使用root用户，请在`flag.sh`中自行处理
+2. 请将要导入的数据存放在`src/db.sql`中，并在Dockerfile中编写`COPY src /var/www/html`，环境会自动导入，最终导入使用路径为`/var/www/html/db.sql`，导入完毕后会`自动删除`db.sql
+
+### 配置文件
+
+1. Apache2 VirtaulHost `/etc/apache2/sites-available/000-default.conf`
+2. PHP `/usr/local/etc/php/php.ini-production`
+3. MySQL `/etc/alternatives/my.cnf`

@@ -23,13 +23,6 @@ if [ -f /var/www/html/db.sql ]; then
     rm -f /var/www/html/db.sql
 fi
 
-# 导入apache配置
-if [ -f /var/www/html/000-default.conf ]; then
-    echo "[+] Init apache2"
-    mv /var/www/html/000-default.conf /etc/apache2/sites-available/000-default.conf
-    service apache2 restart
-fi
-
 # 导入flag
 if [ -f /flag.sh ]; then
     echo "[+] Init flag.sh"
